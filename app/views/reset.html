@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="text-center">Change Password</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <p class="text-center">Use the form below to change your password.</p>
+            <form method="post" id="passwordForm">
+                <input type="password" class="input-lg form-control" placeholder="New Password" autocomplete="off" ng-model='reset.newPassword'>
+                <div class="row">
+                    <div class="col-sm-6">
+                    {{reset.passwordValid()}}
+                        <p ng-show="!reset.passwordValid()"><span id="8char" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> 8 Characters Long</p>
+                        <p ng-show="reset.passwordValid()"><span id="8char" class="glyphicon glyphicon-ok" style="color:#00A41E;"></span> 8 Characters Long</p>
+                    </div>
+                </div>
+                    <input type="password" class="input-lg form-control" placeholder="Repeat Password" autocomplete="off" ng-model='reset.repeatPassword'>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p ng-show="!reset.passwordsMatch()"><span id="pwmatch" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Passwords Match</p>
+                        <p ng-show="reset.passwordsMatch()"><span id="pwmatch" class="glyphicon glyphicon-ok" style="color:#00A41E;"></span> Passwords Match</p>
+                    </div>
+                </div>
+                <input type="submit" class="col-xs-12 btn btn-primary btn-load btn-lg" data-loading-text="Changing Password..." value="Change Password" ng-click="reset.changePassword()">
+            </form>
+        </div>
+    </div>
+</div>
